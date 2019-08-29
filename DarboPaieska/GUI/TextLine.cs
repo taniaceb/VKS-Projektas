@@ -30,6 +30,8 @@ namespace DarboPaieska.GUI
         public override void Render()
         {
             Console.SetCursorPosition(X, Y);
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Gray;
             if (Width > Label.Length)
             {
                 int offset = (Width - Label.Length) / 2;
@@ -38,7 +40,7 @@ namespace DarboPaieska.GUI
                     Console.Write(' ');
                 }
             }
-
+            
             Console.Write(Label);
         }
     }

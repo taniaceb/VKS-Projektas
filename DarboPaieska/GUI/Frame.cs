@@ -25,6 +25,9 @@ namespace DarboPaieska.GUI
 
         public override void Render()
         {
+
+           
+
             for (int i = 0; i < Height; i++)
             {
 
@@ -33,6 +36,7 @@ namespace DarboPaieska.GUI
                 {
                     for (int j = 0; j < Width; j++)
                     {
+                        
                         Console.Write(RenderChar);
                     }
                 }

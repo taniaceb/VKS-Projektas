@@ -21,8 +21,8 @@ namespace DarboPaieska.GUI
 
         public Button(int x, int y, int width, int height, string buttonText) : base(x, y, width, height)
         {
-
-            _notActiveFrame = new Frame(x, y, width, height, '+');
+            
+            _notActiveFrame = new Frame(x, y, width, height, '*');
             _activeFrame = new Frame(x, y, width, height, '&');
             _textLine = new TextLine(x + 1, y + 1 + ((height - 2) / 2), width - 2, buttonText);
 
@@ -30,6 +30,8 @@ namespace DarboPaieska.GUI
 
         public override void Render()
         {
+            
+
             if (IsActive)
             {
                 _activeFrame.Render();
