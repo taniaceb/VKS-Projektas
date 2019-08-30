@@ -22,7 +22,7 @@ namespace DarboPaieska.GUI
         }
 
 
-        public TextLine(int x, int y, int width, string label) : base(x, y, width, 0)
+        public TextLine(int x, int y, int width, string label) : base(x, y, width)
         {
             Label = label;
         }

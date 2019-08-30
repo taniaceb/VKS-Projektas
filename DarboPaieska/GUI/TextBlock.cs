@@ -8,7 +8,7 @@ namespace DarboPaieska.GUI
     {
         private List<TextLine> _textBlocks = new List<TextLine>();
 
-        public TextBlock(int x, int y, int width, List<string> textList) : base(x, y, width, 0)
+        public TextBlock(int x, int y, int width, List<string> textList) : base(x, y, width)
         {
             for (int i = 0; i < textList.Count; i++)
             {
