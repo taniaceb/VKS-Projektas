@@ -14,18 +14,21 @@ namespace DarboPaieska.Menu
 
 
         private TextBlock _titleTextBlock;
+        private TextBlock _searchCity;
 
         public List<TextBlock> ads = new List<TextBlock>();
         public List<string> position = new List<string>();
-        public List<string> description = new List<string>();
+        public List<string> city = new List<string>();
+        public List<string> company = new List<string>();
+        public List<string> category = new List<string>();
         private int _index = 0;
-        private int j = 0;
+        private int j = 4;
         private int k = 0;
         public JobAds() : base(0, 0, 120, 30, '*')
         {
 
-            _titleTextBlock = new TextBlock(50, 2, 20, new List<String> { "DARBO SKELBIMAI " });
-
+            _titleTextBlock = new TextBlock(20, 1, 20, new List<String> { "DARBO SKELBIMAI " });
+            _searchCity = new TextBlock(50, 1, 20, new List<String> { "Filtras:Miestas ", "Paspausti M     " });
 
 
         }
@@ -35,22 +38,35 @@ namespace DarboPaieska.Menu
 
             base.Render();
             _titleTextBlock.Render();
+            _searchCity.Render();
 
             string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Job_Search";
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                using (SqlCommand comand = new SqlCommand("Select Top 5 position, JobDescription from job_ad  ", con))
+                using (SqlCommand comand = new SqlCommand("select job_ad.position, job_ad.City," +
+                    "company.CompName, category.CategName from job_ad, " +
+                    "company, category where job_ad.CompanyId = company.Id " +
+                    "and job_ad.CategoryId = category.Id  ", con))
+
                 using (SqlDataReader reader = comand.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         position.Add(reader.GetString(0));
-                        description.Add(reader.GetString(1));
+                        city.Add(reader.GetString(1));
+                        company.Add(reader.GetString(2));
+                        category.Add(reader.GetString(3));
+
+                        if(5 + 5 * k>=26)
+                        {
+                           k = 0;
+                           j += 40;
+                        }
                         
-                        ads.Add(new TextBlock(0, 4 + 5 * _index, 30, new List<String> { position[_index], description[_index] }));
+                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
                         _index++;
-                       
+                        k++;
                     }
                 }
 

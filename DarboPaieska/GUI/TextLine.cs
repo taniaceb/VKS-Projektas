@@ -32,14 +32,14 @@ namespace DarboPaieska.GUI
             Console.SetCursorPosition(X, Y);
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.Gray;
-            if (Width > Label.Length)
+          /*  if (Width > Label.Length)
             {
                 int offset = (Width - Label.Length) / 2;
                 for (int i = 0; i < offset; i++)
                 {
                     Console.Write(' ');
                 }
-            }
+            }*/
             
             Console.Write(Label);
         }
