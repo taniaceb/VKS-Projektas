@@ -114,15 +114,20 @@ namespace DarboPaieska.Menu
         public void FilterAllJobQuery(string filterCity, string filterCategory, string filterCompany)
         {
             ads.Clear();
+            position.Clear();
+            city.Clear();
+            company.Clear();
+            category.Clear();
             j = 4;
             k = 0;
+            _index = 0;
             string sqlExpression;
 
             string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Job_Search";
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                if (filterCity == null & filterCategory == null & filterCompany == null)
+                if (filterCity == "" & filterCategory == "" & filterCompany == "")
                 {
                     sqlExpression = "select top 15 job_ad.position, job_ad.City," +
                     "company.CompName, category.CategName from job_ad, " +
@@ -130,7 +135,7 @@ namespace DarboPaieska.Menu
                     "and job_ad.CategoryId = category.Id  ";
 
                 }
-                else if (filterCategory == null & filterCompany == null)
+                else if (filterCategory == "" & filterCompany == "")
                 {
                     sqlExpression = "select top 15 job_ad.position, job_ad.City," +
                     "company.CompName, category.CategName from job_ad " +
@@ -139,7 +144,7 @@ namespace DarboPaieska.Menu
 
 
                 }
-                else if (filterCity == null & filterCompany == null)
+                else if (filterCity == "" & filterCompany == "")
                 {
 
                     sqlExpression = "select top 15 job_ad.position, job_ad.City," +
@@ -148,40 +153,40 @@ namespace DarboPaieska.Menu
                     "inner join category on job_ad.CategoryId = category.Id where category.CategName =" + "'" + filterCategory + "'";
 
                 }
-                else if (filterCity == null & filterCategory == null )
+                else if (filterCity == "" & filterCategory == "")
                 {
                     sqlExpression = "select top 15 job_ad.position, job_ad.City," +
                     "company.CompName, category.CategName from job_ad " +
                     "  inner join company on  job_ad.CompanyId = company.Id " +
                     "inner join category on job_ad.CategoryId = category.Id where company.CompName =" + "'" + filterCompany + "'";
-                    
+
                 }
-                else if(filterCity == null )
+                else if (filterCity == "")
                 {
                     sqlExpression = "select top 15 job_ad.position, job_ad.City," +
                    "company.CompName, category.CategName from job_ad " +
                    "  inner join company on  job_ad.CompanyId = company.Id " +
-                   "inner join category on job_ad.CategoryId = category.Id" +
-                   "where category.CategName = "+"'"+filterCategory+"'"+" and company.CompName =" + "'" + filterCompany + "'" ;
+                   "inner join category on job_ad.CategoryId = category.Id " +
+                   "where category.CategName = " + "'" + filterCategory + "'" + " and company.CompName =" + "'" + filterCompany + "'";
 
 
                 }
-                else if (filterCategory == null)
+                else if (filterCategory == "")
                 {
                     sqlExpression = "select top 15 job_ad.position, job_ad.City," +
                    "company.CompName, category.CategName from job_ad " +
                    "  inner join company on  job_ad.CompanyId = company.Id " +
-                   "inner join category on job_ad.CategoryId = category.Id" +
+                   "inner join category on job_ad.CategoryId = category.Id " +
                    "where job_ad.City = " + "'" + filterCity + "'" + " and company.CompName =" + "'" + filterCompany + "'";
 
 
                 }
-                else if (filterCompany == null)
+                else if (filterCompany == "")
                 {
                     sqlExpression = "select top 15 job_ad.position, job_ad.City," +
                    "company.CompName, category.CategName from job_ad " +
                    "  inner join company on  job_ad.CompanyId = company.Id " +
-                   "inner join category on job_ad.CategoryId = category.Id" +
+                   "inner join category on job_ad.CategoryId = category.Id " +
                    "where job_ad.City = " + "'" + filterCity + "'" + " and category.CategName =" + "'" + filterCategory + "'";
 
 
@@ -191,11 +196,11 @@ namespace DarboPaieska.Menu
                     sqlExpression = "select top 15 job_ad.position, job_ad.City," +
                   "company.CompName, category.CategName from job_ad " +
                   "  inner join company on  job_ad.CompanyId = company.Id " +
-                  "inner join category on job_ad.CategoryId = category.Id" +
+                  "inner join category on job_ad.CategoryId = category.Id " +
                   "where job_ad.City = " + "'" + filterCity + "'" + " and category.CategName =" + "'" + filterCategory + "'" + " and company.CompName =" + "'" + filterCompany + "'";
 
                 }
-               
+
                 using (SqlCommand comand = new SqlCommand(sqlExpression, con))
 
                 using (SqlDataReader reader = comand.ExecuteReader())
