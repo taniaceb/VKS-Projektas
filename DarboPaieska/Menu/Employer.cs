@@ -137,9 +137,10 @@ namespace DarboPaieska.Menu
 
         public override void Render()
         {
-
+            Console.Clear();
             base.Render();
-          
+            j = 4;
+            k = 0;
             if (ads.Count>0)
             {
                 _companyName.Render();

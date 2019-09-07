@@ -1,0 +1,106 @@
+﻿'dotnet.exe' (CoreCLR: DefaultDomain): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Private.CoreLib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\GitSpace\VKS_Projektas\DarboPaieska\bin\Debug\netcoreapp2.1\DarboPaieska.dll'. Symbols loaded.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Runtime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Console.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Collections.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Diagnostics.Debug.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+Window: DarboPaieska.Menu.JobAds
+Create textline 3, 1     ?DARBO SKELBIMAI 
+Create textline 20, 1     ?FILTRAS:Miestas 
+Create textline 20, 2     ?Paspausti M     
+Create textline 40, 1     ?FILTRAS:Miestas, Darbo sritis, Imone  
+Create textline 40, 2     ?Paspausti F     
+Create textline 80, 1     ?MENIU       
+Create textline 80, 2     ?Paspausti 1     
+Create textline 100, 1     ?Siusti savo CV   
+Create textline 100, 2     ?Paspausti 5     
+Window: DarboPaieska.Menu.MainMenu
+Create textline 50, 3     ?DARBO PAIESKA
+Create textline 11, 8     ?  1 - Darbo skelbimai
+Create textline 11, 14     ?  2 - Ikelti CV
+Create textline 11, 20     ?  3 - Darbdaviams
+Window: DarboPaieska.Menu.Employer
+Create textline 20, 1     ?IMONES DARBO SKELBIMAI 
+Create textline 80, 1     ?C - NAUJAS SKELBIMAS 
+Create textline 80, 3     ?D - ISTRINTI 
+Create textline 80, 5     ?1 - MENIU 
+Create textline 20, 1     ?TOKIO VARTOTOJO NERA 
+Create textline 20, 2     ?NORINT IS NAUJO PRISIJUNGTI PASPAUSKITE '1'
+ShowMainMenu
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Threading.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Runtime.Extensions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+ChooseMainMenuItem
+ShowJobAds
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Users\Tania\.nuget\packages\system.data.sqlclient\4.6.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Data.Common.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.ComponentModel.Primitives.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Transactions.Local.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Threading.Tasks.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Diagnostics.DiagnosticSource.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Diagnostics.Tracing.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Threading.Timer.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Collections.Concurrent.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Threading.Thread.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Threading.ThreadPool.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Runtime.InteropServices.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.text.encoding.codepages\4.5.0\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Resources.ResourceManager.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.runtime.compilerservices.unsafe\4.5.0\lib\netcoreapp2.0\System.Runtime.CompilerServices.Unsafe.dll'. Module was built without symbols.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\Microsoft.Win32.Primitives.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Xml.ReaderWriter.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Private.Xml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.ComponentModel.TypeConverter.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+Create textline 4, 5     ?KOMPIUTERIU TECHNIKAS  ID- 1
+Create textline 4, 6     ?Miestas: Vilnius
+Create textline 4, 7     ?Imone: UAB ABC
+Create textline 4, 8     ?Darbo sritis: IT
+Create textline 4, 10     ?IT INŽINIERIUS  ID- 2
+Create textline 4, 11     ?Miestas: Vilnius
+Create textline 4, 12     ?Imone: UAB ABC
+Create textline 4, 13     ?Darbo sritis: IT
+Create textline 4, 15     ?LOGISTIKOS IMONES VADOVAS  ID- 3
+Create textline 4, 16     ?Miestas: Kaunas
+Create textline 4, 17     ?Imone: UAB Statyba
+Create textline 4, 18     ?Darbo sritis: Logistika
+Create textline 4, 20     ?TECHNIKAS  ID- 4
+Create textline 4, 21     ?Miestas: Klaipeda
+Create textline 4, 22     ?Imone: UAB Parduotuve
+Create textline 4, 23     ?Darbo sritis: Statyba
+Create textline 4, 25     ?KLIENTU KONSULTANTAS  ID- 5
+Create textline 4, 26     ?Miestas: Klaipeda
+Create textline 4, 27     ?Imone: UAB Parduotuve
+Create textline 4, 28     ?Darbo sritis: Klientu aptarnavimas
+Create textline 44, 5     ?REISU KOORDINATORIUS  ID- 6
+Create textline 44, 6     ?Miestas: Vilnius
+Create textline 44, 7     ?Imone: UAB Info
+Create textline 44, 8     ?Darbo sritis: Logistika
+Create textline 44, 10     ?TOLIMUJU REISU VAIRUOTOJAS   ID- 7
+Create textline 44, 11     ?Miestas: Kaunas
+Create textline 44, 12     ?Imone: UAB Farma
+Create textline 44, 13     ?Darbo sritis: Logistika
+Create textline 44, 15     ?PROGRAMUOTOJAS  ID- 8
+Create textline 44, 16     ?Miestas: Kaunas
+Create textline 44, 17     ?Imone: UAB Farma
+Create textline 44, 18     ?Darbo sritis: IT
+Create textline 44, 20     ?VYR. BUHALTERE (-IS)  ID- 9
+Create textline 44, 21     ?Miestas: Klaipeda
+Create textline 44, 22     ?Imone: UAB Statyba
+Create textline 44, 23     ?Darbo sritis: Finansai
+Create textline 44, 25     ?APSKAITININKAS (-E)  ID- 10
+Create textline 44, 26     ?Miestas: Kaunas
+Create textline 44, 27     ?Imone: UAB ABC
+Create textline 44, 28     ?Darbo sritis: Finansai
+Create textline 84, 5     ?Darbininkas  ID- 14
+Create textline 84, 6     ?Miestas: Kaunas
+Create textline 84, 7     ?Imone: UAB ABC
+Create textline 84, 8     ?Darbo sritis: Finansai
+Create textline 84, 10     ?Pardavejas  ID- 16
+Create textline 84, 11     ?Miestas: Kaunas
+Create textline 84, 12     ?Imone: UAB ABC
+Create textline 84, 13     ?Darbo sritis: Klientu aptarnavimas
+Create textline 84, 15     ?vadybininkas  ID- 17
+Create textline 84, 16     ?Miestas: Kaunas
+Create textline 84, 17     ?Imone: UAB ABC
+Create textline 84, 18     ?Darbo sritis: Logistika
+JobAdsFilter
+The program '[7116] dotnet.exe' has exited with code -1 (0xffffffff).

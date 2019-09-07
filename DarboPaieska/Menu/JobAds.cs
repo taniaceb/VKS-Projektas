@@ -17,9 +17,10 @@ namespace DarboPaieska.Menu
         private TextBlock _searchCity;
         private TextBlock _searchAll;
         private TextBlock _backToMainMenu;
-
+        private TextBlock _sendCV;
 
         public List<TextBlock> ads = new List<TextBlock>();
+        public List<int> AdId = new List<int>();
         public List<string> position = new List<string>();
         public List<string> city = new List<string>();
         public List<string> company = new List<string>();
@@ -27,24 +28,28 @@ namespace DarboPaieska.Menu
         private int _index = 0;
         private int j = 4;
         private int k = 0;
+
         public JobAds() : base(0, 0, 120, 30, '*')
         {
 
             _titleTextBlock = new TextBlock(3, 1, 20, new List<String> { "DARBO SKELBIMAI " });
-            _searchCity = new TextBlock(25, 1, 20, new List<String> { "Filtras:Miestas ", "Paspausti M     " });
-            _searchAll = new TextBlock(45, 1, 20, new List<String> { "Filtras:Miestas, Darbo sritis, Imone  ", "Paspausti F     " });
-            _backToMainMenu = new TextBlock(90, 1, 20, new List<String> { "MENIU       ", "Paspausti 1     " });
+            _searchCity = new TextBlock(20, 1, 20, new List<String> { "FILTRAS:Miestas ", "Paspausti M     " });
+            _searchAll = new TextBlock(40, 1, 20, new List<String> { "FILTRAS:Miestas, Darbo sritis, Imone  ", "Paspausti F     " });
+            _backToMainMenu = new TextBlock(80, 1, 20, new List<String> { "MENIU       ", "Paspausti 1     " });
+            _sendCV = new TextBlock(100, 1, 20, new List<String> { "Siusti savo CV   ", "Paspausti 5     " });
         }
 
         public void SelectJobQuery()
         {
 
             ads.Clear();
+            j = 4;
+            k = 0;
             string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Job_Search";
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                using (SqlCommand comand = new SqlCommand("select top 15 job_ad.position, job_ad.City," +
+                using (SqlCommand comand = new SqlCommand("select top 15 job_ad.Id,job_ad.position, job_ad.City," +
                     "company.CompName, category.CategName from job_ad, " +
                     "company, category where job_ad.CompanyId = company.Id " +
                     "and job_ad.CategoryId = category.Id  ", con))
@@ -53,10 +58,11 @@ namespace DarboPaieska.Menu
                 {
                     while (reader.Read())
                     {
-                        position.Add(reader.GetString(0));
-                        city.Add(reader.GetString(1));
-                        company.Add(reader.GetString(2));
-                        category.Add(reader.GetString(3));
+                        AdId.Add(reader.GetInt32(0));
+                        position.Add(reader.GetString(1));
+                        city.Add(reader.GetString(2));
+                        company.Add(reader.GetString(3));
+                        category.Add(reader.GetString(4));
 
                         if (5 + 5 * k >= 26)
                         {
@@ -64,7 +70,7 @@ namespace DarboPaieska.Menu
                             j += 40;
                         }
 
-                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
+                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index] + "  ID- " + AdId[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
                         _index++;
                         k++;
                     }
@@ -83,7 +89,7 @@ namespace DarboPaieska.Menu
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string sqlExpression = "select top 15 job_ad.position, job_ad.City," +
+                string sqlExpression = "select top 15 job_ad.Id, job_ad.position, job_ad.City," +
                     "company.CompName, category.CategName from job_ad " +
                     "  inner join company on  job_ad.CompanyId = company.Id " +
                     "inner join category on job_ad.CategoryId = category.Id where job_ad.City =" + "'" + filterCity + "'";
@@ -94,10 +100,11 @@ namespace DarboPaieska.Menu
                 {
                     while (reader.Read())
                     {
-                        position.Add(reader.GetString(0));
-                        city.Add(reader.GetString(1));
-                        company.Add(reader.GetString(2));
-                        category.Add(reader.GetString(3));
+                        AdId.Add(reader.GetInt32(0));
+                        position.Add(reader.GetString(1));
+                        city.Add(reader.GetString(2));
+                        company.Add(reader.GetString(3));
+                        category.Add(reader.GetString(4));
 
                         if (5 + 5 * k >= 26)
                         {
@@ -105,7 +112,7 @@ namespace DarboPaieska.Menu
                             j += 40;
                         }
 
-                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
+                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index] + "  ID- " + AdId[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
                         _index++;
                         k++;
                     }
@@ -116,6 +123,7 @@ namespace DarboPaieska.Menu
         public void FilterAllJobQuery(string filterCity, string filterCategory, string filterCompany)
         {
             ads.Clear();
+            AdId.Clear();
             position.Clear();
             city.Clear();
             company.Clear();
@@ -131,7 +139,7 @@ namespace DarboPaieska.Menu
                 con.Open();
                 if (filterCity == "" & filterCategory == "" & filterCompany == "")
                 {
-                    sqlExpression = "select top 15 job_ad.position, job_ad.City," +
+                    sqlExpression = "select top 15 job_ad.Id,job_ad.position, job_ad.City," +
                     "company.CompName, category.CategName from job_ad, " +
                     "company, category where job_ad.CompanyId = company.Id " +
                     "and job_ad.CategoryId = category.Id  ";
@@ -139,7 +147,7 @@ namespace DarboPaieska.Menu
                 }
                 else if (filterCategory == "" & filterCompany == "")
                 {
-                    sqlExpression = "select top 15 job_ad.position, job_ad.City," +
+                    sqlExpression = "select top 15 job_ad.Id,job_ad.position, job_ad.City," +
                     "company.CompName, category.CategName from job_ad " +
                     "  inner join company on  job_ad.CompanyId = company.Id " +
                     "inner join category on job_ad.CategoryId = category.Id where job_ad.City =" + "'" + filterCity + "'";
@@ -149,7 +157,7 @@ namespace DarboPaieska.Menu
                 else if (filterCity == "" & filterCompany == "")
                 {
 
-                    sqlExpression = "select top 15 job_ad.position, job_ad.City," +
+                    sqlExpression = "select top 15 job_ad.Id,job_ad.position, job_ad.City," +
                     "company.CompName, category.CategName from job_ad " +
                     "  inner join company on  job_ad.CompanyId = company.Id " +
                     "inner join category on job_ad.CategoryId = category.Id where category.CategName =" + "'" + filterCategory + "'";
@@ -157,7 +165,7 @@ namespace DarboPaieska.Menu
                 }
                 else if (filterCity == "" & filterCategory == "")
                 {
-                    sqlExpression = "select top 15 job_ad.position, job_ad.City," +
+                    sqlExpression = "select top 15 job_ad.Id,job_ad.position, job_ad.City," +
                     "company.CompName, category.CategName from job_ad " +
                     "  inner join company on  job_ad.CompanyId = company.Id " +
                     "inner join category on job_ad.CategoryId = category.Id where company.CompName =" + "'" + filterCompany + "'";
@@ -165,7 +173,7 @@ namespace DarboPaieska.Menu
                 }
                 else if (filterCity == "")
                 {
-                    sqlExpression = "select top 15 job_ad.position, job_ad.City," +
+                    sqlExpression = "select top 15 job_ad.Id,job_ad.position, job_ad.City," +
                    "company.CompName, category.CategName from job_ad " +
                    "  inner join company on  job_ad.CompanyId = company.Id " +
                    "inner join category on job_ad.CategoryId = category.Id " +
@@ -175,7 +183,7 @@ namespace DarboPaieska.Menu
                 }
                 else if (filterCategory == "")
                 {
-                    sqlExpression = "select top 15 job_ad.position, job_ad.City," +
+                    sqlExpression = "select top 15 job_ad.Id,job_ad.position, job_ad.City," +
                    "company.CompName, category.CategName from job_ad " +
                    "  inner join company on  job_ad.CompanyId = company.Id " +
                    "inner join category on job_ad.CategoryId = category.Id " +
@@ -185,7 +193,7 @@ namespace DarboPaieska.Menu
                 }
                 else if (filterCompany == "")
                 {
-                    sqlExpression = "select top 15 job_ad.position, job_ad.City," +
+                    sqlExpression = "select top 15 job_ad.Id,job_ad.position, job_ad.City," +
                    "company.CompName, category.CategName from job_ad " +
                    "  inner join company on  job_ad.CompanyId = company.Id " +
                    "inner join category on job_ad.CategoryId = category.Id " +
@@ -195,7 +203,7 @@ namespace DarboPaieska.Menu
                 }
                 else
                 {
-                    sqlExpression = "select top 15 job_ad.position, job_ad.City," +
+                    sqlExpression = "select top 15 job_ad.Id,job_ad.position, job_ad.City," +
                   "company.CompName, category.CategName from job_ad " +
                   "  inner join company on  job_ad.CompanyId = company.Id " +
                   "inner join category on job_ad.CategoryId = category.Id " +
@@ -209,10 +217,11 @@ namespace DarboPaieska.Menu
                 {
                     while (reader.Read())
                     {
-                        position.Add(reader.GetString(0));
-                        city.Add(reader.GetString(1));
-                        company.Add(reader.GetString(2));
-                        category.Add(reader.GetString(3));
+                        AdId.Add(reader.GetInt32(0));
+                        position.Add(reader.GetString(1));
+                        city.Add(reader.GetString(2));
+                        company.Add(reader.GetString(3));
+                        category.Add(reader.GetString(4));
 
                         if (5 + 5 * k >= 26)
                         {
@@ -220,7 +229,7 @@ namespace DarboPaieska.Menu
                             j += 40;
                         }
 
-                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
+                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index] + "  ID- " + AdId[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
                         _index++;
                         k++;
                     }
@@ -231,12 +240,14 @@ namespace DarboPaieska.Menu
 
         public override void Render()
         {
-
+            Console.Clear();
+            _index = 0;
             base.Render();
             _titleTextBlock.Render();
             _searchCity.Render();
             _searchAll.Render();
             _backToMainMenu.Render();
+            _sendCV.Render();
 
             if(ads.Count>0)
             {

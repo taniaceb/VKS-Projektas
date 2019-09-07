@@ -12,10 +12,13 @@ namespace DarboPaieska
                      
             Console.BackgroundColor = ConsoleColor.Gray;
             MenuController menuController = new MenuController();
-            
-            
-            //  menuController.ShowJobAds();
-            menuController.ShowMainMenu();
+
+            // while(menuController.)
+            // menuController.ShowJobAds();
+
+            //menuController.ShowMainMenu();
+            menuController.ShowWindow();
+
 
             // mainMenu.Render();
            // jobAds.SelectJobQuery();
