@@ -16,6 +16,8 @@ namespace DarboPaieska.Menu
         private TextBlock _titleTextBlock;
         private TextBlock _searchCity;
         private TextBlock _searchAll;
+        private TextBlock _backToMainMenu;
+
 
         public List<TextBlock> ads = new List<TextBlock>();
         public List<string> position = new List<string>();
@@ -28,10 +30,10 @@ namespace DarboPaieska.Menu
         public JobAds() : base(0, 0, 120, 30, '*')
         {
 
-            _titleTextBlock = new TextBlock(20, 1, 20, new List<String> { "DARBO SKELBIMAI " });
-            _searchCity = new TextBlock(50, 1, 20, new List<String> { "Filtras:Miestas ", "Paspausti M     " });
-            _searchAll = new TextBlock(70, 1, 20, new List<String> { "Filtras:Miestas, Darbo sritis, Imone  ", "Paspausti F     " });
-
+            _titleTextBlock = new TextBlock(3, 1, 20, new List<String> { "DARBO SKELBIMAI " });
+            _searchCity = new TextBlock(25, 1, 20, new List<String> { "Filtras:Miestas ", "Paspausti M     " });
+            _searchAll = new TextBlock(45, 1, 20, new List<String> { "Filtras:Miestas, Darbo sritis, Imone  ", "Paspausti F     " });
+            _backToMainMenu = new TextBlock(90, 1, 20, new List<String> { "MENIU       ", "Paspausti 1     " });
         }
 
         public void SelectJobQuery()
@@ -234,32 +236,17 @@ namespace DarboPaieska.Menu
             _titleTextBlock.Render();
             _searchCity.Render();
             _searchAll.Render();
+            _backToMainMenu.Render();
 
-
-            for (int i = 0; i < ads.Count; i++)
+            if(ads.Count>0)
             {
-                ads[i].Render();
-            }
-
-
-            /*while (true)
-            {
-                for (int i = 0; i < MenuItem.Count; i++)
+                for (int i = 0; i < ads.Count; i++)
                 {
-                    if (i == _index)
-                    {
-                        Console.BackgroundColor = ConsoleColor.Yellow;
-                        Console.ForegroundColor = ConsoleColor.Black;
-                    }
-                    else
-                    {
-                        Console.BackgroundColor = ConsoleColor.Green;
-                        MenuItem[i].Render();
-                    }
+                    ads[i].Render();
                 }
-            }*/
-
-            //Console.SetCursorPosition(0, 0);
+            }
+            
+                                 
         }
     }
 }

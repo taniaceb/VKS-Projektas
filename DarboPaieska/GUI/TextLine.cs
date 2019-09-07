@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace DarboPaieska.GUI
@@ -20,27 +21,18 @@ namespace DarboPaieska.GUI
                
             }
         }
-
-
         public TextLine(int x, int y, int width, string label) : base(x, y, width)
         {
+            Debug.WriteLine($"Create textline {x}, {y}     ?{label}");
             Label = label;
         }
 
         public override void Render()
         {
+            //Console.SetCursorPosition(0, 0);
             Console.SetCursorPosition(X, Y);
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.Gray;
-          /*  if (Width > Label.Length)
-            {
-                int offset = (Width - Label.Length) / 2;
-                for (int i = 0; i < offset; i++)
-                {
-                    Console.Write(' ');
-                }
-            }*/
-            
             Console.Write(Label);
         }
     }
