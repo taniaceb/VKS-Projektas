@@ -25,28 +25,71 @@ namespace DarboPaieska.Menu
         public List<string> city = new List<string>();
         public List<string> company = new List<string>();
         public List<string> category = new List<string>();
+        public int PersonId;
         private int _index = 0;
         private int j = 4;
         private int k = 0;
+        private readonly string _connectionString;
 
         public JobAds() : base(0, 0, 120, 30, '*')
         {
-
+            _connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Job_Search";
             _titleTextBlock = new TextBlock(3, 1, 20, new List<String> { "DARBO SKELBIMAI " });
             _searchCity = new TextBlock(20, 1, 20, new List<String> { "FILTRAS:Miestas ", "Paspausti M     " });
             _searchAll = new TextBlock(40, 1, 20, new List<String> { "FILTRAS:Miestas, Darbo sritis, Imone  ", "Paspausti F     " });
-            _backToMainMenu = new TextBlock(80, 1, 20, new List<String> { "MENIU       ", "Paspausti 1     " });
-            _sendCV = new TextBlock(100, 1, 20, new List<String> { "Siusti savo CV   ", "Paspausti 5     " });
+            _backToMainMenu = new TextBlock(80, 1, 20, new List<String> { "MENIU       ", "Paspausti  1    " });
+            _sendCV = new TextBlock(100, 1, 20, new List<String> { "Siusti savo CV   ", "Paspausti  5    " });
         }
 
+        public void SelectPerson(string filterEmail, string filterPassword)
+        {
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                con.Open();
+                using (SqlCommand comand = new SqlCommand("select Id from jobseeker " +
+                    "where Email =" + "'" + filterEmail + "'" + "and JsPassword =" + "'" + filterPassword + "'", con))
+
+                using (SqlDataReader reader = comand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        PersonId = reader.GetInt32(0);
+
+
+                    }
+                }
+            }
+
+        }
+
+        public void  ApplyCV(int adId, int personId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "INSERT INTO dbo.apply_cv (job_ad_Id, jobseekerId) VALUES (@job_ad_Id,@jobseekerId)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@job_ad_Id", adId);
+                    command.Parameters.AddWithValue("@jobseekerId", personId);
+                    
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0)
+                        Console.WriteLine("Error inserting data into Database!");
+                }
+            }
+        }
         public void SelectJobQuery()
         {
 
             ads.Clear();
             j = 4;
             k = 0;
-            string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Job_Search";
-            using (SqlConnection con = new SqlConnection(connectionString))
+
+            using (SqlConnection con = new SqlConnection(_connectionString))
             {
                 con.Open();
                 using (SqlCommand comand = new SqlCommand("select top 15 job_ad.Id,job_ad.position, job_ad.City," +
@@ -85,8 +128,8 @@ namespace DarboPaieska.Menu
             j = 4;
             k = 0;
 
-            string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Job_Search";
-            using (SqlConnection con = new SqlConnection(connectionString))
+
+            using (SqlConnection con = new SqlConnection(_connectionString))
             {
                 con.Open();
                 string sqlExpression = "select top 15 job_ad.Id, job_ad.position, job_ad.City," +
@@ -133,8 +176,8 @@ namespace DarboPaieska.Menu
             _index = 0;
             string sqlExpression;
 
-            string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Job_Search";
-            using (SqlConnection con = new SqlConnection(connectionString))
+
+            using (SqlConnection con = new SqlConnection(_connectionString))
             {
                 con.Open();
                 if (filterCity == "" & filterCategory == "" & filterCompany == "")
@@ -249,15 +292,15 @@ namespace DarboPaieska.Menu
             _backToMainMenu.Render();
             _sendCV.Render();
 
-            if(ads.Count>0)
+            if (ads.Count > 0)
             {
                 for (int i = 0; i < ads.Count; i++)
                 {
                     ads[i].Render();
                 }
             }
-            
-                                 
+
+
         }
     }
 }

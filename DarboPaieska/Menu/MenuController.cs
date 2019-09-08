@@ -10,6 +10,8 @@ namespace DarboPaieska.Menu
         private JobAds _jobAds = new JobAds();
         private MainMenu _mainMenu = new MainMenu();
         private Employer _employer = new Employer();
+        private CV _cvWindow = new CV();
+
         private string _city = "";
         private string _category = "";
         private string _company = "";
@@ -19,16 +21,17 @@ namespace DarboPaieska.Menu
         private string _jobdescription = "";
         private string _jobid;
         private int _result = 0;
-
+        private string _personEmail;
+        private string _personPassword;
 
         public MenuController()
         {
 
         }
 
-       public void ShowWindow()
+        public void ShowWindow()
         {
-            while(_result==0)
+            while (_result == 0)
             {
                 Console.Clear();
                 ShowMainMenu();
@@ -40,7 +43,7 @@ namespace DarboPaieska.Menu
                 ShowJobAds();
             }
 
-            while (_result==3)
+            while (_result == 3)
             {
                 Console.Clear();
                 ShowEmployers();
@@ -91,9 +94,14 @@ namespace DarboPaieska.Menu
             Console.Clear();
             _employer.FilterCompany(_email, _password);
             _employer.Render();
-            CompanyCreateDeleteJobAd();
+            CompanyMenuItem();
         }
 
+
+        public void ShowCVWindow()
+        {
+
+        }
 
         public void ChooseMainMenuItem()
         {
@@ -105,10 +113,10 @@ namespace DarboPaieska.Menu
                 {
                     case ConsoleKey.NumPad1:
 
-                        
+
                         JobAdsReturn();
                         ShowWindow();
-                       
+
                         Console.SetCursorPosition(0, 0);
 
                         break;
@@ -126,16 +134,9 @@ namespace DarboPaieska.Menu
                         //ShowEmployers();
                         EmployerReturn();
                         ShowWindow();
-                      
+
                         break;
 
-                  /*  case ConsoleKey.S:
-
-                        Console.Clear();
-                        _employer.FilterCompany(_email, _password);
-                        _employer.Render();
-                        CompanyCreateDeleteJobAd();
-                        break;*/
                 }
                 pressedChar = Console.ReadKey();
             }
@@ -190,7 +191,7 @@ namespace DarboPaieska.Menu
         }
 
 
-        public void CompanyCreateDeleteJobAd()
+        public void CompanyMenuItem()
         {
             ConsoleKeyInfo pressedChar = Console.ReadKey();
 
@@ -243,7 +244,37 @@ namespace DarboPaieska.Menu
                         //ShowMainMenu();
                         MainMenuReturn();
                         ShowWindow();
-                       break;
+                        break;
+
+                    case ConsoleKey.NumPad4:
+
+                        Console.Clear();
+                        Console.WriteLine("IVESKITE SKELBIMO ID IR PASPAUSKITE 'Enter' ir O");
+                        _jobid = Console.ReadLine();
+
+                        int idvalue;
+                        while (!int.TryParse(_jobid, out idvalue))
+                        {
+                            Console.WriteLine("IVESKITE SKELBIMO ID IR PASPAUSKITE 'Enter' ir O");
+                            _jobid = Console.ReadLine();
+                        }
+
+                        break;
+
+                    case ConsoleKey.O:
+
+                        _employer.PreviewCV(Convert.ToInt32(_jobid), Convert.ToInt32(_employer.companyID[0]));
+                        _employer.PersonRender();
+
+
+                        break;
+
+                    case ConsoleKey.Escape:
+
+                        _employer.FilterCompany(_email, _password);
+                        _employer.Render();
+                        break;
+
 
                 }
                 pressedChar = Console.ReadKey();
@@ -266,7 +297,7 @@ namespace DarboPaieska.Menu
         {
 
             return _result = 3;
-            
+
         }
 
 
@@ -288,7 +319,7 @@ namespace DarboPaieska.Menu
 
                     case ConsoleKey.S:
 
-                         Console.Clear();
+                        Console.Clear();
                         _jobAds.FilterCityJobQuery(_city);
                         _jobAds.Render();
 
@@ -312,11 +343,64 @@ namespace DarboPaieska.Menu
 
                     case ConsoleKey.P:
 
-                         Console.Clear();
+                        Console.Clear();
                         _jobAds.FilterAllJobQuery(_city, _category, _company);
                         _jobAds.Render();
                         break;
 
+                    case ConsoleKey.NumPad5:
+
+                        Console.Clear();
+                        Console.SetCursorPosition(0, 0);
+
+                        Console.WriteLine("IVESKITE EL.PASTO ADRESA IR PASPAUSKITE 'Enter' ");
+                        _personEmail = Console.ReadLine();
+                        while (_personEmail == "")
+                        {
+                            Console.WriteLine("IVESKITE EL.PASTO ADRESA IR PASPAUSKITE 'Enter' ");
+                            _personEmail = Console.ReadLine();
+                        }
+                        Console.WriteLine("IVESKITE SLAPTAZODI IR PASPAUSKITE 'Enter' ");
+                        _personPassword = Console.ReadLine();
+                        while (_personPassword == "")
+                        {
+                            Console.WriteLine("IVESKITE SLAPTAZODI IR PASPAUSKITE 'Enter' ");
+                            _personPassword = Console.ReadLine();
+                        }
+                        _jobAds.SelectPerson(_personEmail, _personPassword);
+
+                        if (_jobAds.PersonId==0)
+                        {
+                            Console.WriteLine("TOKIO VARTOTOJO NERA SPASKITE ESC");
+                           // _jobAds.Render();
+                        }
+                        //Console.WriteLine(_jobAds.PersonId);
+
+                       else
+                        {
+                            Console.WriteLine("IVESKITE SKELBIMO ID IR PASPAUSKITE 'Enter'");
+                            _jobid = Console.ReadLine();
+
+                            int value;
+                            while (!int.TryParse(_jobid, out value))
+                            {
+                                Console.WriteLine("IVESKITE SKELBIMO ID IR PASPAUSKITE 'Enter'");
+                                _jobid = Console.ReadLine();
+                            }
+                            _jobAds.ApplyCV(Convert.ToInt32(_jobid), _jobAds.PersonId);
+                            Console.WriteLine("JUSU CV ISSAUGOTAS, PASPAUSKITE 'Esc'");
+                        }
+                                            
+                        break;
+
+                    case ConsoleKey.Escape:
+
+                        Console.Clear();
+                        ShowWindow();
+                        
+                        break;
+
+                   
                     case ConsoleKey.NumPad1:
 
                         Console.Clear();
