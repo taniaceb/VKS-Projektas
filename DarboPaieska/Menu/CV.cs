@@ -17,6 +17,7 @@ namespace DarboPaieska.Menu
         private string _cvFile;
         private string _description;
         public List<string> PersonInfo = new List<string>();
+        public List<TextBlock> Person = new List<TextBlock>();
 
         private readonly string _connectionString;
 
@@ -29,13 +30,14 @@ namespace DarboPaieska.Menu
         public void PersonCV(string firstName, string lastName, string email, string phone,  string password, int age, string cvfile,string description)
         {
 
-            PersonInfo.Add(firstName);
-            PersonInfo.Add(lastName);
-            PersonInfo.Add(email);
-            PersonInfo.Add(phone);
-            PersonInfo.Add(password);
-            PersonInfo.Add(Convert.ToString(age));
-            
+          PersonInfo.Add(firstName);
+          PersonInfo.Add(lastName);
+          PersonInfo.Add(email);
+          PersonInfo.Add(phone);
+          PersonInfo.Add(password);
+          PersonInfo.Add(Convert.ToString(age));
+
+          Person.Add(new TextBlock(3, 5, 30, new List<String> { "Vardas: " + firstName, "Pavarde: " + lastName, "Email: " + email, "Telefonas: " + phone, "Slaptazodis: " + password, "Amzius: " + age }));
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -66,7 +68,10 @@ namespace DarboPaieska.Menu
             Console.Clear();
 
             base.Render();
-            foreach(string str in PersonInfo)
+
+        //    Person.Render();
+
+            foreach (string str in PersonInfo)
             {
                 Console.WriteLine(str);
             }

@@ -23,6 +23,11 @@ namespace DarboPaieska.Menu
         private int _result = 0;
         private string _personEmail;
         private string _personPassword;
+        private string _name;
+        private string _lastName;
+        private string _personPhone;
+
+        public string _personAge { get; private set; }
 
         public MenuController()
         {
@@ -42,6 +47,13 @@ namespace DarboPaieska.Menu
                 Console.Clear();
                 ShowJobAds();
             }
+
+            while (_result == 2)
+            {
+                Console.Clear();
+                ShowCVWindow();
+            }
+
 
             while (_result == 3)
             {
@@ -101,6 +113,61 @@ namespace DarboPaieska.Menu
         public void ShowCVWindow()
         {
 
+            Console.Clear();
+            Debug.WriteLine("ShowCVWindow");
+            Console.SetCursorPosition(0, 0);
+
+            Console.WriteLine("IVESKITE VARDA IR PASPAUSKITE 'Enter' ");
+            _name = Console.ReadLine();
+            while (_name == "")
+            {
+                Console.WriteLine("IVESKITE VARDA IR PASPAUSKITE 'Enter' ");
+                _name = Console.ReadLine();
+            }
+
+            Console.WriteLine("IVESKITE PAVARDE IR PASPAUSKITE 'Enter' ");
+            _lastName = Console.ReadLine();
+            while (_lastName == "")
+            {
+                Console.WriteLine("IVESKITE PAVARDE IR PASPAUSKITE 'Enter' ");
+                _lastName = Console.ReadLine();
+            }
+
+            Console.WriteLine("IVESKITE EL. PASTO ADRESA IR PASPAUSKITE 'Enter' ");
+            _personEmail = Console.ReadLine();
+            while (_personEmail == "")
+            {
+                Console.WriteLine("IVESKITE EL.PASTO ADRESA IR PASPAUSKITE 'Enter' ");
+                _personEmail = Console.ReadLine();
+            }
+
+            Console.WriteLine("IVESKITE TEL. NUMERI IR PASPAUSKITE 'Enter' ");
+            _personPhone = Console.ReadLine();
+            while (_personPhone == "")
+            {
+                Console.WriteLine("IVESKITE TEL. NUMERI IR PASPAUSKITE 'Enter' ");
+                _personPhone = Console.ReadLine();
+            }
+
+            Console.WriteLine("IVESKITE SLAPTAZODI (IDENTIFIKACIJA SISTEMOJE) IR PASPAUSKITE 'Enter' ");
+            _personPassword = Console.ReadLine();
+            while (_personPassword == "")
+            {
+                Console.WriteLine("IVESKITE SLAPTAZODI (IDENTIFIKACIJA SISTEMOJE) IR PASPAUSKITE 'Enter' ");
+                _personPassword = Console.ReadLine();
+            }
+
+            Console.WriteLine("IVESKITE KIEK JUMS METU IR PASPAUSKITE 'Enter' ");
+            _personAge = Console.ReadLine();
+            while (_personAge == "")
+            {
+                Console.WriteLine("IVESKITE KIEK JUMS METU IR PASPAUSKITE 'Enter' ");
+                _personAge = Console.ReadLine();
+            }
+
+            _cvWindow.PersonCV(_name, _lastName, _personEmail, _personPhone, _personPassword, Convert.ToInt32(_personAge),"testas@testas.lt","testas");
+            Console.WriteLine("JUSU INFO ISSAUGOTA SEKMINGAI");
+            _cvWindow.Render();
         }
 
         public void ChooseMainMenuItem()
@@ -123,9 +190,8 @@ namespace DarboPaieska.Menu
 
                     case ConsoleKey.NumPad2:
 
-                        // Console.SetCursorPosition(0, 0);
-                        Console.Clear();
-                        //Ivesti CV
+                        CVReturn();
+                        ShowWindow();
 
                         break;
 
@@ -291,6 +357,13 @@ namespace DarboPaieska.Menu
         {
 
             return _result = 1;
+        }
+
+        public int CVReturn()
+        {
+
+            return _result = 2;
+
         }
 
         public int EmployerReturn()
