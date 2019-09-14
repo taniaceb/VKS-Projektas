@@ -8,34 +8,23 @@ namespace DarboPaieska.Menu
 {
     class CV : Window
     {
-        private string _firstName;
-        private string _lastName;
-        private string _email;
-        private string _phone;
-        private int _age;
-        private string _password;
-        private string _cvFile;
-        private string _description;
-        public List<string> PersonInfo = new List<string>();
+              
         public List<TextBlock> Person = new List<TextBlock>();
 
         private readonly string _connectionString;
+        private TextLine _backToMainMenu;
 
         public CV() : base(0, 0, 120, 30, '*')
         {
             _connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Job_Search";
+            _backToMainMenu = new TextLine(85, 1, 20, "1  - MENIU     ");
         }
 
 
         public void PersonCV(string firstName, string lastName, string email, string phone,  string password, int age, string cvfile,string description)
         {
 
-          PersonInfo.Add(firstName);
-          PersonInfo.Add(lastName);
-          PersonInfo.Add(email);
-          PersonInfo.Add(phone);
-          PersonInfo.Add(password);
-          PersonInfo.Add(Convert.ToString(age));
+        
 
           Person.Add(new TextBlock(3, 5, 30, new List<String> { "Vardas: " + firstName, "Pavarde: " + lastName, "Email: " + email, "Telefonas: " + phone, "Slaptazodis: " + password, "Amzius: " + age }));
 
@@ -68,14 +57,10 @@ namespace DarboPaieska.Menu
             Console.Clear();
 
             base.Render();
+            _backToMainMenu.Render();
+            Person[0].Render();
 
-        //    Person.Render();
-
-            foreach (string str in PersonInfo)
-            {
-                Console.WriteLine(str);
-            }
-
+             
         }
     }
 }

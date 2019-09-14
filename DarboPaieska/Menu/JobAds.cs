@@ -19,12 +19,12 @@ namespace DarboPaieska.Menu
         private TextBlock _backToMainMenu;
         private TextBlock _sendCV;
 
-        public List<TextBlock> ads = new List<TextBlock>();
+        public List<TextBlock> Ads = new List<TextBlock>();
         public List<int> AdId = new List<int>();
-        public List<string> position = new List<string>();
-        public List<string> city = new List<string>();
-        public List<string> company = new List<string>();
-        public List<string> category = new List<string>();
+        public List<string> Position = new List<string>();
+        public List<string> City = new List<string>();
+        public List<string> Company = new List<string>();
+        public List<string> Category = new List<string>();
         public int PersonId;
         private int _index = 0;
         private int j = 4;
@@ -85,7 +85,7 @@ namespace DarboPaieska.Menu
         public void SelectJobQuery()
         {
 
-            ads.Clear();
+            Ads.Clear();
             j = 4;
             k = 0;
 
@@ -102,10 +102,10 @@ namespace DarboPaieska.Menu
                     while (reader.Read())
                     {
                         AdId.Add(reader.GetInt32(0));
-                        position.Add(reader.GetString(1));
-                        city.Add(reader.GetString(2));
-                        company.Add(reader.GetString(3));
-                        category.Add(reader.GetString(4));
+                        Position.Add(reader.GetString(1));
+                        City.Add(reader.GetString(2));
+                        Company.Add(reader.GetString(3));
+                        Category.Add(reader.GetString(4));
 
                         if (5 + 5 * k >= 26)
                         {
@@ -113,7 +113,7 @@ namespace DarboPaieska.Menu
                             j += 40;
                         }
 
-                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index] + "  ID- " + AdId[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
+                        Ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { Position[_index] + "  ID- " + AdId[_index], "Miestas: " + City[_index], "Imone: " + Company[_index], "Darbo sritis: " + Category[_index] }));
                         _index++;
                         k++;
                     }
@@ -124,7 +124,7 @@ namespace DarboPaieska.Menu
 
         public void FilterCityJobQuery(string filterCity)
         {
-            ads.Clear();
+            Ads.Clear();
             j = 4;
             k = 0;
 
@@ -144,10 +144,10 @@ namespace DarboPaieska.Menu
                     while (reader.Read())
                     {
                         AdId.Add(reader.GetInt32(0));
-                        position.Add(reader.GetString(1));
-                        city.Add(reader.GetString(2));
-                        company.Add(reader.GetString(3));
-                        category.Add(reader.GetString(4));
+                        Position.Add(reader.GetString(1));
+                        City.Add(reader.GetString(2));
+                        Company.Add(reader.GetString(3));
+                        Category.Add(reader.GetString(4));
 
                         if (5 + 5 * k >= 26)
                         {
@@ -155,7 +155,7 @@ namespace DarboPaieska.Menu
                             j += 40;
                         }
 
-                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index] + "  ID- " + AdId[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
+                        Ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { Position[_index] + "  ID- " + AdId[_index], "Miestas: " + City[_index], "Imone: " + Company[_index], "Darbo sritis: " + Category[_index] }));
                         _index++;
                         k++;
                     }
@@ -165,12 +165,12 @@ namespace DarboPaieska.Menu
 
         public void FilterAllJobQuery(string filterCity, string filterCategory, string filterCompany)
         {
-            ads.Clear();
+            Ads.Clear();
             AdId.Clear();
-            position.Clear();
-            city.Clear();
-            company.Clear();
-            category.Clear();
+            Position.Clear();
+            City.Clear();
+            Company.Clear();
+            Category.Clear();
             j = 4;
             k = 0;
             _index = 0;
@@ -261,10 +261,10 @@ namespace DarboPaieska.Menu
                     while (reader.Read())
                     {
                         AdId.Add(reader.GetInt32(0));
-                        position.Add(reader.GetString(1));
-                        city.Add(reader.GetString(2));
-                        company.Add(reader.GetString(3));
-                        category.Add(reader.GetString(4));
+                        Position.Add(reader.GetString(1));
+                        City.Add(reader.GetString(2));
+                        Company.Add(reader.GetString(3));
+                        Category.Add(reader.GetString(4));
 
                         if (5 + 5 * k >= 26)
                         {
@@ -272,7 +272,7 @@ namespace DarboPaieska.Menu
                             j += 40;
                         }
 
-                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { position[_index] + "  ID- " + AdId[_index], "Miestas: " + city[_index], "Imone: " + company[_index], "Darbo sritis: " + category[_index] }));
+                        Ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { Position[_index] + "  ID- " + AdId[_index], "Miestas: " + City[_index], "Imone: " + Company[_index], "Darbo sritis: " + Category[_index] }));
                         _index++;
                         k++;
                     }
@@ -292,11 +292,11 @@ namespace DarboPaieska.Menu
             _backToMainMenu.Render();
             _sendCV.Render();
 
-            if (ads.Count > 0)
+            if (Ads.Count > 0)
             {
-                for (int i = 0; i < ads.Count; i++)
+                for (int i = 0; i < Ads.Count; i++)
                 {
-                    ads[i].Render();
+                    Ads[i].Render();
                 }
             }
 

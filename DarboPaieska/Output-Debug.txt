@@ -31,6 +31,7 @@ Create textline 20, 2     ?NORINT IS NAUJO PRISIJUNGTI PASPAUSKITE '1'
 Create textline 20, 1     ?DUOMENU NERA 
 Create textline 20, 2     ?NORINT GRIZTI PASPAUSKITE 'ESC'
 Window: DarboPaieska.Menu.CV
+Create textline 85, 1     ?1  - MENIU     
 ShowMainMenu
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Threading.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Runtime.Extensions.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
@@ -40,6 +41,12 @@ ShowCVWindow
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Data.Common.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.ComponentModel.Primitives.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Transactions.Local.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+Create textline 3, 5     ?Vardas: bcbcv
+Create textline 3, 6     ?Pavarde: bcvbcv
+Create textline 3, 7     ?Email: vbvb
+Create textline 3, 8     ?Telefonas: 222
+Create textline 3, 9     ?Slaptazodis: cvc
+Create textline 3, 10     ?Amzius: 25
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Threading.Tasks.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Diagnostics.DiagnosticSource.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Diagnostics.Tracing.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
@@ -56,5 +63,108 @@ ShowCVWindow
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.Private.Xml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.ComponentModel.TypeConverter.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.1.11\System.ComponentModel.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-ShowCVWindow
-The program '[5556] dotnet.exe' has exited with code -1 (0xffffffff).
+ShowMainMenu
+ChooseMainMenuItem
+ShowEmployers
+Create textline 4, 5     ?Skelbimo ID: 1         Siunte CV: 3
+Create textline 4, 6     ?KOMPIUTERIU TECHNIKAS
+Create textline 4, 7     ?Miestas: Vilnius
+Create textline 4, 8     ?Darbo sritis: IT
+Create textline 4, 10     ?Skelbimo ID: 2         Siunte CV: 2
+Create textline 4, 11     ?IT INŽINIERIUS
+Create textline 4, 12     ?Miestas: Vilnius
+Create textline 4, 13     ?Darbo sritis: IT
+Create textline 4, 15     ?Skelbimo ID: 10         Siunte CV: 2
+Create textline 4, 16     ?APSKAITININKAS (-E)
+Create textline 4, 17     ?Miestas: Kaunas
+Create textline 4, 18     ?Darbo sritis: Finansai
+Create textline 4, 20     ?Skelbimo ID: 16         Siunte CV: 2
+Create textline 4, 21     ?Pardavejas
+Create textline 4, 22     ?Miestas: Kaunas
+Create textline 4, 23     ?Darbo sritis: Klientu aptarnavimas
+Create textline 4, 25     ?Skelbimo ID: 17         Siunte CV: 0
+Create textline 4, 26     ?vadybininkas
+Create textline 4, 27     ?Miestas: Kaunas
+Create textline 4, 28     ?Darbo sritis: Logistika
+Create textline 44, 5     ?Skelbimo ID: 18         Siunte CV: 0
+Create textline 44, 6     ?Vairuotojas
+Create textline 44, 7     ?Miestas: Klaipeda
+Create textline 44, 8     ?Darbo sritis: Logistika
+Create textline 44, 10     ?Skelbimo ID: 20         Siunte CV: 2
+Create textline 44, 11     ?Technikas
+Create textline 44, 12     ?Miestas: Vilnius
+Create textline 44, 13     ?Darbo sritis: Finansai
+Create textline 5, 1     ?UAB ABC
+Create textline 4, 5     ?Skelbimo ID: 1         Siunte CV: 3
+Create textline 4, 6     ?KOMPIUTERIU TECHNIKAS
+Create textline 4, 7     ?Miestas: Vilnius
+Create textline 4, 8     ?Darbo sritis: IT
+Create textline 4, 10     ?Skelbimo ID: 2         Siunte CV: 2
+Create textline 4, 11     ?IT INŽINIERIUS
+Create textline 4, 12     ?Miestas: Vilnius
+Create textline 4, 13     ?Darbo sritis: IT
+Create textline 4, 15     ?Skelbimo ID: 10         Siunte CV: 2
+Create textline 4, 16     ?APSKAITININKAS (-E)
+Create textline 4, 17     ?Miestas: Kaunas
+Create textline 4, 18     ?Darbo sritis: Finansai
+Create textline 4, 20     ?Skelbimo ID: 16         Siunte CV: 2
+Create textline 4, 21     ?Pardavejas
+Create textline 4, 22     ?Miestas: Kaunas
+Create textline 4, 23     ?Darbo sritis: Klientu aptarnavimas
+Create textline 4, 25     ?Skelbimo ID: 17         Siunte CV: 0
+Create textline 4, 26     ?vadybininkas
+Create textline 4, 27     ?Miestas: Kaunas
+Create textline 4, 28     ?Darbo sritis: Logistika
+Create textline 44, 5     ?Skelbimo ID: 18         Siunte CV: 0
+Create textline 44, 6     ?Vairuotojas
+Create textline 44, 7     ?Miestas: Klaipeda
+Create textline 44, 8     ?Darbo sritis: Logistika
+Create textline 44, 10     ?Skelbimo ID: 20         Siunte CV: 2
+Create textline 44, 11     ?Technikas
+Create textline 44, 12     ?Miestas: Vilnius
+Create textline 44, 13     ?Darbo sritis: Finansai
+Create textline 5, 1     ?UAB ABC
+Create textline 4, 2     ?Vardas: Renata
+Create textline 4, 3     ?Pavarde: Tralaityte
+Create textline 4, 4     ?Amzius: 28
+Create textline 4, 5     ?Telefonas: 3704567766
+Create textline 4, 6     ?El.pastas: renata@gmail.com
+Create textline 4, 7     ?CV: cvRenata.docx
+Create textline 4, 9     ?Vardas: Dainius
+Create textline 4, 10     ?Pavarde: Bugnovas
+Create textline 4, 11     ?Amzius: 44
+Create textline 4, 12     ?Telefonas: 3704566688
+Create textline 4, 13     ?El.pastas: dainius.b@gmail.com
+Create textline 4, 14     ?CV: cvDainius.docx
+Create textline 4, 5     ?Skelbimo ID: 1         Siunte CV: 3
+Create textline 4, 6     ?KOMPIUTERIU TECHNIKAS
+Create textline 4, 7     ?Miestas: Vilnius
+Create textline 4, 8     ?Darbo sritis: IT
+Create textline 4, 10     ?Skelbimo ID: 2         Siunte CV: 2
+Create textline 4, 11     ?IT INŽINIERIUS
+Create textline 4, 12     ?Miestas: Vilnius
+Create textline 4, 13     ?Darbo sritis: IT
+Create textline 4, 15     ?Skelbimo ID: 10         Siunte CV: 2
+Create textline 4, 16     ?APSKAITININKAS (-E)
+Create textline 4, 17     ?Miestas: Kaunas
+Create textline 4, 18     ?Darbo sritis: Finansai
+Create textline 4, 20     ?Skelbimo ID: 16         Siunte CV: 2
+Create textline 4, 21     ?Pardavejas
+Create textline 4, 22     ?Miestas: Kaunas
+Create textline 4, 23     ?Darbo sritis: Klientu aptarnavimas
+Create textline 4, 25     ?Skelbimo ID: 17         Siunte CV: 0
+Create textline 4, 26     ?vadybininkas
+Create textline 4, 27     ?Miestas: Kaunas
+Create textline 4, 28     ?Darbo sritis: Logistika
+Create textline 44, 5     ?Skelbimo ID: 18         Siunte CV: 0
+Create textline 44, 6     ?Vairuotojas
+Create textline 44, 7     ?Miestas: Klaipeda
+Create textline 44, 8     ?Darbo sritis: Logistika
+Create textline 44, 10     ?Skelbimo ID: 20         Siunte CV: 2
+Create textline 44, 11     ?Technikas
+Create textline 44, 12     ?Miestas: Vilnius
+Create textline 44, 13     ?Darbo sritis: Finansai
+Create textline 5, 1     ?UAB ABC
+ShowMainMenu
+ChooseMainMenuItem
+The program '[876] dotnet.exe' has exited with code -1 (0xffffffff).

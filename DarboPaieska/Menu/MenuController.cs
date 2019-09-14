@@ -161,14 +161,47 @@ namespace DarboPaieska.Menu
             _personAge = Console.ReadLine();
             while (_personAge == "")
             {
-                Console.WriteLine("IVESKITE KIEK JUMS METU IR PASPAUSKITE 'Enter' ");
+                Console.WriteLine("IVESKITE KIEK JUMS METU IR PASPAUSKITE 'Enter'  ");
                 _personAge = Console.ReadLine();
             }
 
-            _cvWindow.PersonCV(_name, _lastName, _personEmail, _personPhone, _personPassword, Convert.ToInt32(_personAge),"testas@testas.lt","testas");
+            _cvWindow.PersonCV(_name, _lastName, _personEmail, _personPhone, _personPassword, Convert.ToInt32(_personAge), "testas@testas.lt", "testas");
             Console.WriteLine("JUSU INFO ISSAUGOTA SEKMINGAI");
-            _cvWindow.Render();
+            Console.WriteLine("PASAPASUKITE Y");
+            ShowPersonInfo();
+
         }
+
+
+        public void ShowPersonInfo()
+        {
+            ConsoleKeyInfo pressedChar = Console.ReadKey();
+            while (pressedChar.Key != ConsoleKey.End)
+            {
+                switch (pressedChar.Key)
+                {
+                    case ConsoleKey.Y:
+
+
+                        Console.Clear();
+                        _cvWindow.Render();
+                    
+
+                        break;
+
+                    case ConsoleKey.NumPad1:
+
+                        MainMenuReturn();
+                        ShowWindow();
+
+                        break;
+
+                }
+                pressedChar = Console.ReadKey();
+            }
+        }
+
+
 
         public void ChooseMainMenuItem()
         {
@@ -190,7 +223,7 @@ namespace DarboPaieska.Menu
 
                     case ConsoleKey.NumPad2:
 
-                        CVReturn();
+                       CVReturn();
                         ShowWindow();
 
                         break;
@@ -274,7 +307,7 @@ namespace DarboPaieska.Menu
                     case ConsoleKey.S:
 
                         Console.Clear();
-                        _employer.CreateAdd(Convert.ToInt32(_employer.companyID[0]), Convert.ToInt32(_category), _position, _jobdescription, _city);
+                        _employer.CreateAdd(Convert.ToInt32(_employer.CompanyID[0]), Convert.ToInt32(_category), _position, _jobdescription, _city);
                         _employer.FilterCompany(_email, _password);
                         _employer.Render();
 
@@ -298,7 +331,7 @@ namespace DarboPaieska.Menu
                     case ConsoleKey.T:
 
                         Console.Clear();
-                        _employer.DeleteAdd(Convert.ToInt32(_employer.companyID[0]), Convert.ToInt32(_jobid));
+                        _employer.DeleteAdd(Convert.ToInt32(_employer.CompanyID[0]), Convert.ToInt32(_jobid));
                         _employer.FilterCompany(_email, _password);
                         _employer.Render();
                         break;
@@ -329,7 +362,7 @@ namespace DarboPaieska.Menu
 
                     case ConsoleKey.O:
 
-                        _employer.PreviewCV(Convert.ToInt32(_jobid), Convert.ToInt32(_employer.companyID[0]));
+                        _employer.PreviewCV(Convert.ToInt32(_jobid), Convert.ToInt32(_employer.CompanyID[0]));
                         _employer.PersonRender();
 
 
@@ -442,14 +475,14 @@ namespace DarboPaieska.Menu
                         }
                         _jobAds.SelectPerson(_personEmail, _personPassword);
 
-                        if (_jobAds.PersonId==0)
+                        if (_jobAds.PersonId == 0)
                         {
                             Console.WriteLine("TOKIO VARTOTOJO NERA SPASKITE ESC");
-                           // _jobAds.Render();
+                            // _jobAds.Render();
                         }
                         //Console.WriteLine(_jobAds.PersonId);
 
-                       else
+                        else
                         {
                             Console.WriteLine("IVESKITE SKELBIMO ID IR PASPAUSKITE 'Enter'");
                             _jobid = Console.ReadLine();
@@ -463,17 +496,17 @@ namespace DarboPaieska.Menu
                             _jobAds.ApplyCV(Convert.ToInt32(_jobid), _jobAds.PersonId);
                             Console.WriteLine("JUSU CV ISSAUGOTAS, PASPAUSKITE 'Esc'");
                         }
-                                            
+
                         break;
 
                     case ConsoleKey.Escape:
 
                         Console.Clear();
                         ShowWindow();
-                        
+
                         break;
 
-                   
+
                     case ConsoleKey.NumPad1:
 
                         Console.Clear();

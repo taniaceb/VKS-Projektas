@@ -22,12 +22,12 @@ namespace DarboPaieska.Menu
         private TextBlock _companyName;
 
 
-        public List<TextBlock> ads = new List<TextBlock>();
-        public List<string> position = new List<string>();
-        public List<string> city = new List<string>();
-        public List<string> company = new List<string>();
-        public List<string> companyID = new List<string>();
-        public List<string> category = new List<string>();
+        public List<TextBlock> Ads = new List<TextBlock>();
+        public List<string> Position = new List<string>();
+        public List<string> City = new List<string>();
+        public List<string> Company = new List<string>();
+        public List<string> CompanyID = new List<string>();
+        public List<string> Category = new List<string>();
         public List<string> ID = new List<string>();
         public List<int> CVcount = new List<int>();
 
@@ -115,7 +115,7 @@ namespace DarboPaieska.Menu
 
         public void FilterCompany(string filterEmail, string filterPassword)
         {
-            ads.Clear();
+            Ads.Clear();
             j = 4;
             k = 0;
 
@@ -134,12 +134,12 @@ namespace DarboPaieska.Menu
                 {
                     while (reader.Read())
                     {
-                        position.Add(reader.GetString(0));
-                        city.Add(reader.GetString(1));
-                        company.Add(reader.GetString(2));
-                        category.Add(reader.GetString(3));
+                        Position.Add(reader.GetString(0));
+                        City.Add(reader.GetString(1));
+                        Company.Add(reader.GetString(2));
+                        Category.Add(reader.GetString(3));
                         ID.Add(reader.GetInt32(4).ToString());
-                        companyID.Add(reader.GetInt32(5).ToString());
+                        CompanyID.Add(reader.GetInt32(5).ToString());
                         CVcount.Add(reader.GetInt32(6));
 
                         if (5 + 5 * k >= 26)
@@ -148,13 +148,13 @@ namespace DarboPaieska.Menu
                             j += 40;
                         }
 
-                        ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { "Skelbimo ID: " + ID[_index] + "         Siunte CV: " + CVcount[_index], position[_index], "Miestas: " + city[_index], "Darbo sritis: " + category[_index] }));
+                        Ads.Add(new TextBlock(j, 5 + 5 * k, 30, new List<String> { "Skelbimo ID: " + ID[_index] + "         Siunte CV: " + CVcount[_index], Position[_index], "Miestas: " + City[_index], "Darbo sritis: " + Category[_index] }));
                         _index++;
                         k++;
                     }
-                    if (company.Count > 0)
+                    if (Company.Count > 0)
                     {
-                        _companyName = new TextBlock(5, 1, 20, new List<String> { company[0] });
+                        _companyName = new TextBlock(5, 1, 20, new List<String> { Company[0] });
                     }
 
                 }
@@ -215,7 +215,7 @@ namespace DarboPaieska.Menu
             base.Render();
             j = 4;
             k = 0;
-            if (ads.Count > 0)
+            if (Ads.Count > 0)
             {
                 _companyName.Render();
                 base.Render();
@@ -225,9 +225,9 @@ namespace DarboPaieska.Menu
                     SubMenu[i].Render();
                 }
 
-                for (int i = 0; i < ads.Count; i++)
+                for (int i = 0; i < Ads.Count; i++)
                 {
-                    ads[i].Render();
+                    Ads[i].Render();
                 }
 
             }
