@@ -1,0 +1,43 @@
+﻿[2019-10-29 17:34:46 Informational] ------ Run test started ------
+[2019-10-29 17:34:48 Warning] Test run will use DLL(s) built for framework .NETCoreApp,Version=v1.0 and platform X86. Following DLL(s) do not match framework/platform settings.
+AutomTestAssersion.dll is built for Framework 2.1 and Platform AnyCPU.
+Go to http://go.microsoft.com/fwlink/?LinkID=236877&clcid=0x409 for more details on managing these settings.
+
+[2019-10-29 17:34:55 Warning] [MSTest][Discovery][C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll] UTA031: class AutomTestAssersion.Test3 does not have valid TestContext property. TestContext must be of type TestContext, must be non-static, public and must not be read-only. For example: public TestContext TestContext.
+[2019-10-29 17:34:55 Warning] No test matches the given testcase filter `FullyQualifiedName=AutomTestAssersion.Test3.TestMethod2|FullyQualifiedName=AutomTestAssersion.Test3.TestMethod3|FullyQualifiedName=AutomTestAssersion.Test3.TestMethod1` in C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll
+[2019-10-29 17:34:56 Informational] ========== Run test finished: 0 run (0:00:09,3073484) ==========
+[2019-10-29 17:35:18 Informational] ------ Run test started ------
+[2019-10-29 17:35:18 Warning] Test run will use DLL(s) built for framework .NETCoreApp,Version=v1.0 and platform X86. Following DLL(s) do not match framework/platform settings.
+AutomTestAssersion.dll is built for Framework 2.1 and Platform AnyCPU.
+Go to http://go.microsoft.com/fwlink/?LinkID=236877&clcid=0x409 for more details on managing these settings.
+
+[2019-10-29 17:35:22 Warning] [MSTest][Discovery][C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll] UTA031: class AutomTestAssersion.Test3 does not have valid TestContext property. TestContext must be of type TestContext, must be non-static, public and must not be read-only. For example: public TestContext TestContext.
+[2019-10-29 17:35:22 Warning] No test matches the given testcase filter `FullyQualifiedName=AutomTestAssersion.Test3.TestMethod2|FullyQualifiedName=AutomTestAssersion.Test3.TestMethod3|FullyQualifiedName=AutomTestAssersion.Test3.TestMethod1` in C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll
+[2019-10-29 17:35:22 Informational] ========== Run test finished: 0 run (0:00:03,9316286) ==========
+[2019-10-29 17:35:57 Informational] ------ Discover test started ------
+[2019-10-29 17:35:57 Warning] Test run will use DLL(s) built for framework .NETCoreApp,Version=v1.0 and platform X86. Following DLL(s) do not match framework/platform settings.
+AutomTestAssersion.dll is built for Framework 2.1 and Platform AnyCPU.
+Go to http://go.microsoft.com/fwlink/?LinkID=236877&clcid=0x409 for more details on managing these settings.
+
+[2019-10-29 17:35:58 Warning] [MSTest][Discovery][C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll] UTA031: class AutomTestAssersion.Test3 does not have valid TestContext property. TestContext must be of type TestContext, must be non-static, public and must not be read-only. For example: public TestContext TestContext.
+[2019-10-29 17:35:58 Warning] No test is available in C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+[2019-10-29 17:35:58 Informational] ========== Discover test finished: 0 found (0:00:01,410116) ==========
+[2019-10-29 17:36:12 Informational] No tests found to run.
+[2019-10-29 17:41:29 Informational] ------ Run test started ------
+[2019-10-29 17:41:29 Warning] Test run will use DLL(s) built for framework .NETCoreApp,Version=v1.0 and platform X86. Following DLL(s) do not match framework/platform settings.
+AutomTestAssersion.dll is built for Framework 2.1 and Platform AnyCPU.
+Go to http://go.microsoft.com/fwlink/?LinkID=236877&clcid=0x409 for more details on managing these settings.
+
+[2019-10-29 17:41:32 Warning] [MSTest][Discovery][C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll] UTA031: class AutomTestAssersion.Test3 does not have valid TestContext property. TestContext must be of type TestContext, must be non-static, public and must not be read-only. For example: public TestContext TestContext.
+[2019-10-29 17:41:32 Warning] No test matches the given testcase filter `FullyQualifiedName=AutomTestAssersion.Test3.TestMethod2|FullyQualifiedName=AutomTestAssersion.Test3.TestMethod3|FullyQualifiedName=AutomTestAssersion.Test3.TestMethod1` in C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll
+[2019-10-29 17:41:33 Informational] ========== Run test finished: 0 run (0:00:03,9674098) ==========
+[2019-10-29 17:41:56 Informational] Executing test method: AutomTestAssersion.Test3.RunBeforeEveryTest
+[2019-10-29 17:41:56 Informational] Executing test method: AutomTestAssersion.Test3.RunBeforeEveryTest
+[2019-10-29 17:41:56 Informational] ------ Run test started ------
+[2019-10-29 17:41:56 Warning] Test run will use DLL(s) built for framework .NETCoreApp,Version=v1.0 and platform X86. Following DLL(s) do not match framework/platform settings.
+AutomTestAssersion.dll is built for Framework 2.1 and Platform AnyCPU.
+Go to http://go.microsoft.com/fwlink/?LinkID=236877&clcid=0x409 for more details on managing these settings.
+
+[2019-10-29 17:41:58 Warning] [MSTest][Discovery][C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll] UTA031: class AutomTestAssersion.Test3 does not have valid TestContext property. TestContext must be of type TestContext, must be non-static, public and must not be read-only. For example: public TestContext TestContext.
+[2019-10-29 17:41:58 Warning] No test matches the given testcase filter `FullyQualifiedName=AutomTestAssersion.Test3.RunBeforeEveryTest` in C:\GitSpace\VKS_Projektas\AutomTestAssersion\bin\Debug\netcoreapp2.1\AutomTestAssersion.dll
+[2019-10-29 17:41:58 Informational] ========== Run test finished: 0 run (0:00:01,7843063) ==========
